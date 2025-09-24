@@ -1,0 +1,176 @@
+/* Inter font faces - using local files */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/inter-v20-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/inter-v20-latin-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/inter-v20-latin-700.woff2") format("woff2");
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --green: hsl(75, 94%, 57%);
+  --white: hsl(0, 0%, 100%);
+  --grey-700: hsl(0, 0%, 20%);
+  --grey-800: hsl(0, 0%, 12%);
+  --grey-900: hsl(0, 0%, 8%);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--grey-900);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Profile card container */
+.profile-card {
+  background-color: var(--grey-800);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 384px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Profile image */
+.profile-image {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+/* Profile info */
+.profile-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.profile-location {
+  color: var(--green);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.profile-bio {
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Social links */
+.social-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.social-link {
+  background-color: var(--grey-700);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.social-link a {
+  display: block;
+  padding: 14px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Focus and hover states */
+.social-link a:focus {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.social-link a:hover,
+.social-link a:focus {
+  background-color: var(--green);
+  color: var(--grey-900);
+}
+
+/* Attribution */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Mobile styles */
+@media (max-width: 375px) {
+  .profile-card {
+    padding: 24px;
+    max-width: 327px;
+  }
+
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+  }
+
+  .social-link a {
+    padding: 12px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .profile-card {
+    border: 1px solid var(--white);
+  }
+
+  .social-link {
+    border: 1px solid var(--white);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .social-link a {
+    transition: none;
+  }
+}
