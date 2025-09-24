@@ -16,32 +16,29 @@ This is a solution to the [Social links profile challenge on Frontend Mentor](ht
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
 
 Users should be able to:
 
+- View the optimal layout for the interface depending on their device's screen size.
 - See hover and focus states for all interactive elements on the page
+- Access all interactive elements using keyboard navigation.
+- Have a screen reader-friendly experience with proper semantic structure.
 
 ### Screenshot
 
-![](./screenshot.jpg)
+Desktop ![Desktop](./screenshots/desktop.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+Tablet ![Tablet](./screenshots/tablet.png)
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+Mobile ![Mobile](./screenshots/mobile.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Social links profile codebase](https://github.com/sparechange679/social-links-profile.git)
+- Live Site URL: [Social links profile](https://sparechange679.github.io/social-links-profile/)
 
 ## My process
 
@@ -50,61 +47,79 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Accessibility-first approach
+- Local font loading for privacy
+- [Google Web Fonts Helper](https://gwfh.mranftl.com/fonts/inter?subsets=latin) - Inter 400, 600, 700
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This project reinforced my understanding of creating accessible web components with proper semantic structure and keyboard navigation. I focused on implementing WCAG guidelines while maintaining a clean, modern design.
 
-To see how you can add code snippets, see below:
+One key accessibility feature I implemented was proper ARIA attributes and focus management:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<nav aria-labelledby="profile-bio">
+  <ul class="social-links" role="list">
+    <li class="social-link" role="listitem">
+      <a href="#" aria-label="Visit Jessica's GitHub profile">GitHub</a>
+    </li>
+  </ul>
+</nav>
 ```
+
+I also learned how to create smooth hover and focus states that maintain accessibility:
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.social-link a:focus {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
 }
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+
+.social-link a:hover,
+.social-link a:focus {
+  background-color: var(--green);
+  color: var(--grey-900);
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+Another important aspect was implementing reduced motion support for users with vestibular disorders:
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```css
+@media (prefers-reduced-motion: reduce) {
+  .social-link a {
+    transition: none;
+  }
+}
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+In future projects, I want to focus on:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- Implementing more complex CSS Grid layouts for larger components
+
+- Exploring CSS container queries for more flexible responsive designs
+
+- Improving my skills in accessibility testing with screen readers
+
+- Experimenting with CSS custom properties for theming and dark/light mode switching
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [MDN Web Docs - ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) -  Excellent resource for understanding ARIA attributes and their proper usage.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [WebAIM Color Contrast Checker](https://webaim.org/resources/contrastchecker/) - Helped ensure all color combinations met WCAG standards.
+- [A11Y Project](https://www.a11yproject.com/) - Great collection of accessibility patterns and best practices.
+- [Frontend Mentor Community](https://www.frontendmentor.io) - Valuable feedback and inspiration from other developers.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Github - [Blessings](https://github.com/sparechange679)
+- Frontend Mentor - [@sparechange679](https://www.frontendmentor.io/profile/sparechange679)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+I'd like to thank the Frontend Mentor community for providing constructive feedback and the design team for creating such clean, accessible design specifications. The challenge helped me deepen my understanding of accessibility implementation in real-world projects.
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Special thanks to the Web Content Accessibility Guidelines (WCAG) community for providing clear standards that make the web more inclusive for everyone.
